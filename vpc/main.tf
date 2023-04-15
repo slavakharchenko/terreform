@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "eu-central-1"
-}
-
 // Virtual Private Cloud
 resource "aws_vpc" "terraform_vpc" {
   cidr_block       = "10.0.0.0/24"
@@ -53,7 +49,7 @@ resource "aws_route_table_association" "aws_public_route_table_association" {
   route_table_id = aws_route_table.terraform_public_route_table.id
 }
 
-// Public subnet with NAT gateway in route table
+// Private subnet with NAT gateway in route table
 resource "aws_subnet" "terraform_private_subnet" {
   vpc_id     = aws_vpc.terraform_vpc.id
   cidr_block = "10.0.0.0/28"

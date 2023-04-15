@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "eu-central-1"
-}
-
 data "aws_vpc" "vpc" {
   filter {
     name   = "tag:Name"
